@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>나만의 AI 비서</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="cold-start-banner" class="banner" hidden>
+    서버를 깨우는 중입니다. 무료 서버는 잠시 쉬고 있다가 첫 요청에 깨어나기 때문에 최대 1분 정도 걸릴 수 있어요.
+  </div>
+
+  <header class="app-header">
+    <h1>나만의 AI 비서</h1>
+    <div id="summary-bar" class="summary-bar">요약 정보를 불러오는 중...</div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab-btn active" data-tab="chat">채팅</button>
+    <button class="tab-btn" data-tab="data">데이터 관리</button>
+    <button class="tab-btn" data-tab="history">대화 기록</button>
+  </nav>
+
+  <main>
+    <section id="tab-chat" class="tab-panel active">
+      <div id="chat-messages" class="chat-messages"></div>
+      <div id="chat-loading" class="loading" hidden>AI가 답변을 작성하는 중...</div>
+      <form id="chat-form" class="chat-form">
+        <input id="chat-input" type="text" placeholder="예: 이번 달 실적이 어때?" autocomplete="off" required />
+        <button type="submit">보내기</button>
+      </form>
+      <button id="new-chat-btn" class="secondary-btn">새 대화 시작</button>
+    </section>
+
+    <section id="tab-data" class="tab-panel">
+      <h2>데이터 추가</h2>
+      <form id="data-form" class="data-form">
+        <input id="data-date" type="date" required />
+        <input id="data-value" type="number" step="any" placeholder="값" required />
+        <input id="data-memo" type="text" placeholder="메모 (선택)" />
+        <button type="submit">추가</button>
+      </form>
+
+      <h2>데이터 목록</h2>
+      <div id="data-list-status" class="status-text"></div>
+      <div class="table-wrap">
+        <table id="data-table">
+          <thead>
+            <tr>
+              <th>날짜</th>
+              <th>값</th>
+              <th>메모</th>
+              <th>작업</th>
+            </tr>
+          </thead>
+          <tbody id="data-table-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section id="tab-history" class="tab-panel">
+      <h2>대화 기록</h2>
+      <div id="history-list" class="history-list"></div>
+    </section>
+  </main>
+
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
