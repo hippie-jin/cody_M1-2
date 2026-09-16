@@ -15,7 +15,7 @@ def _get_client() -> OpenAI:
     if _client is None:
         if not config.OPENAI_API_KEY:
             raise RuntimeError("OPENAI_API_KEY 환경 변수가 설정되지 않았습니다.")
-        _client = OpenAI(api_key=config.OPENAI_API_KEY)
+        _client = OpenAI(api_key=config.OPENAI_API_KEY, base_url=config.OPENAI_BASE_URL)
     return _client
 
 
@@ -50,8 +50,7 @@ def ask(message: str, conversation_id: Optional[str]) -> Tuple[str, str]:
     completion = client.chat.completions.create(
         model=config.OPENAI_MODEL,
         messages=api_messages,
-        max_tokens=500,
-        temperature=0.5,
+        max_tokens=1500,
     )
     reply = completion.choices[0].message.content or ""
 
