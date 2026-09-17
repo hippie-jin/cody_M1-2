@@ -50,7 +50,7 @@ def ask(message: str, conversation_id: Optional[str]) -> Tuple[str, str]:
     completion = client.chat.completions.create(
         model=config.OPENAI_MODEL,
         messages=api_messages,
-        max_tokens=1500,
+        max_tokens=3000,
     )
     reply = completion.choices[0].message.content or ""
 
