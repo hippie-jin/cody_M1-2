@@ -11,9 +11,9 @@ BTC/USD 일별 시세 데이터(365일치)를 분석해 요약 정보를 만들�
 
 ## 배포 URL
 
-- 프론트엔드: (배포 후 작성)
-- 백엔드 API: (배포 후 작성)
-- Swagger UI: (배포 후 작성)/docs
+- 프론트엔드: https://cody-m1-2.vercel.app
+- 백엔드 API: https://cody-m1-2.onrender.com
+- Swagger UI: https://cody-m1-2.onrender.com/docs
 
 ## 로컬 실행 방법
 
@@ -53,7 +53,8 @@ python3 -m http.server 5500
 | 변수 | 설명 |
 |---|---|
 | `OPENAI_API_KEY` | OpenAI API 키 |
-| `OPENAI_MODEL` | 사용할 모델 (기본값 `gpt-4o-mini`) |
+| `OPENAI_MODEL` | 사용할 모델 (기본값 `gpt-4o-mini`. 코디세이 프록시 사용 시 `gpt-5-mini`) |
+| `OPENAI_BASE_URL` | (선택) OpenAI 호환 프록시 주소. 코디세이 virtual-key 사용 시 `https://copa.codyssey.kr/v1` |
 | `FIREBASE_SERVICE_ACCOUNT_JSON` | Firebase 서비스 계정 키. JSON 문자열 전체를 넣거나(Render 권장), 로컬에서는 키 파일 경로를 넣어도 됨 |
 | `ALLOWED_ORIGINS` | CORS 허용 origin, 콤마로 구분 (예: 프론트엔드 배포 주소) |
 | `API_BASE_URL` (Vercel 빌드 전용) | 프론트엔드가 호출할 백엔드 주소. Vercel 프로젝트 환경 변수에 설정하면 `build.sh`가 빌드 시점에 `config.js`에 주입함 |
